@@ -6,15 +6,16 @@ public class BoggleWordInChessBoard {
 
 	public static void main(String[] args) {
 		try{
+			BoggleWordInChessBoard bo = new BoggleWordInChessBoard();
 			char[][] mat = {{'G','I','Z'},
                     		{'U','E','K'},
-                    		{'Q','S','E'}};
+                    		{'Q','S','A'}};
 			int row = 3;
 			int col = 3;
 			HashMap<String,String> map = new HashMap();
 			map.put("GEEKS","GEEKS");
 			map.put("QUIZ","QUIZ");
-			
+			bo.boogleWord(mat, row, col,map);
 		}catch(Exception ex){
 			ex.printStackTrace();
 		}
