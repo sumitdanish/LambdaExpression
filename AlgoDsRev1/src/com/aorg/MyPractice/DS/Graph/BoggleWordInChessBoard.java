@@ -6,6 +6,14 @@ public class BoggleWordInChessBoard {
 
 	public static void main(String[] args) {
 		try{
+			char[][] mat = {{'G','I','Z'},
+                    		{'U','E','K'},
+                    		{'Q','S','E'}};
+			int row = 3;
+			int col = 3;
+			HashMap<String,String> map = new HashMap();
+			map.put("GEEKS","GEEKS");
+			map.put("QUIZ","QUIZ");
 			
 		}catch(Exception ex){
 			ex.printStackTrace();
