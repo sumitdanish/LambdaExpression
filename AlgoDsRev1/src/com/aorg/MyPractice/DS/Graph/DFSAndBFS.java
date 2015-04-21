@@ -39,8 +39,8 @@ public class DFSAndBFS {
 			}
 			Node[] node = nodeList.getNodeList();
 			int src = 0;
-			//dbfs.dfsWithOutRecusrsion(node, src);
-			dbfs.bfs(node, src);
+			dbfs.dfsWithRecursion(node, src);
+			//dbfs.bfs(node, src);
 		}catch(Exception ex){
 			ex.printStackTrace();
 		}
@@ -61,6 +61,22 @@ public class DFSAndBFS {
 					node[v].setVisited(true);
 					System.out.print(v+",");
 				}
+			}
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
+	}
+	
+	public void dfsWithRecursion(Node[] node,int src){
+		try{
+			node[src].setVisited(true);
+			Node n = node[src];
+			System.out.print(src+",");
+			while(n != null){
+				if(!node[n.getData()].isVisited()){
+					dfsWithRecursion(node,n.getData());
+				}
+				n = n.getNext();
 			}
 		}catch(Exception ex){
 			ex.printStackTrace();

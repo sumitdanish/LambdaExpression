@@ -26,27 +26,23 @@ public class DFSTime {
 				int dist = Integer.parseInt(st[1]);
 				tnodeList.addEadge(src, dist);
 			}
+			sc.close();
 			TNode[]  node = tnodeList.getTNode();
+			tnodeList.dfsTime(node,0);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
 
 	}
 	
-	public void dfsTime(TNode[] tnode,int src){
-		try{
-			tnode[src].setStV(true);
-			
-		}catch(Exception ex){
-			ex.printStackTrace();
-		}
-	}
+	
 	
 }
 class TNodeList
 {
 	private TNode[] tnode;
 	private int vertex;
+	private int time = 0;
 	public TNodeList(int vertex){
 		this.vertex = vertex;
 		tnode = new TNode[vertex];
@@ -68,6 +64,26 @@ class TNodeList
 	}
 	public void addEadge(int src,int dist){
 		tnode[src] = tnode[src].createNode(tnode[src],dist);
+	}
+	public void dfsTime(TNode[] tnode,int src){
+		try{
+			tnode[src].setStV(true);
+			time = time + 1;
+			tnode[src].setStTime(time);
+			TNode node = tnode[src];
+			while(node != null){
+				if(!tnode[node.getData()].getStV()){
+					dfsTime(tnode,node.getData());
+				}
+				node = node.getNext();
+			}
+			tnode[src].setEndV(true);
+			time=time + 1;
+			tnode[src].setEndTime(time);
+			System.out.println(tnode[src].getStTime()+" > "+tnode[src].getEndTime());
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
 	}
 }
 class TNode
