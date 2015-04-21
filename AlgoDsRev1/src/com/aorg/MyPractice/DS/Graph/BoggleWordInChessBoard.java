@@ -12,7 +12,7 @@ public class BoggleWordInChessBoard {
                     		{'Q','S','A'}};
 			int row = 3;
 			int col = 3;
-			HashMap<String,String> map = new HashMap();
+			HashMap<String,String> map = new HashMap<String, String>();
 			map.put("GEEKS","GEEKS");
 			map.put("QUIZ","QUIZ");
 			bo.boogleWord(mat, row, col,map);
