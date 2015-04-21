@@ -19,6 +19,7 @@ public class PrintAllPossiblePath {
 			}
 			sc.close();
 			PNode[] node = plist.getPnodeList();
+			
 			pp.printPath(node,0,new int[vertex],2,3);;
 		}catch(Exception ex){
 			ex.printStackTrace();
