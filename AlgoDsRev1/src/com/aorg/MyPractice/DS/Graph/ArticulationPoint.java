@@ -1,9 +1,29 @@
 package com.aorg.MyPractice.DS.Graph;
 
+import java.io.File;
+import java.util.Scanner;
+
 public class ArticulationPoint {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
+		try{
+			Scanner sc = new Scanner(new File("articulation.txt"));
+			int vertex = sc.nextInt();
+			APNodeList apList = new APNodeList(vertex);
+			String s = new String();
+			while(sc.hasNext() && !(s=sc.next()).equals("#")){
+				String[] st = s.split("-->");
+				int src = Integer.parseInt(st[0]);
+				int dest = Integer.parseInt(st[1]);
+				apList.addEadge(src, dest);
+			}
+			APNode[] apnodeList = apList.getAPNodeList();
+			apList.apUtil(apnodeList);
+			
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
 
 	}
 
@@ -37,15 +57,23 @@ class APNodeList
 		apnodeList[src] = apnodeList[src].createList(apnodeList[src], dest);
 	}
 	
-	public void apUtil(){
+	public void apUtil(APNode[] apnodeList){
 		try{
 			boolean[] ap = new boolean[vertex];
 			int[] parent = new int[vertex];
 			int[] desc = new int[vertex];
 			int[] low = new int[vertex];
-			APNode[] nodeList = getAPNodeList(); 
+			boolean[] visited = new boolean[vertex];
 			for(int i = 0;i<vertex;i++){
-				articulatioPoint(desc, low, i, parent, ap, nodeList);
+				parent[i] = -1;
+				desc[i] = -1;
+				low[i] = -1;
+			}
+			
+			for(int i = 0;i<vertex;i++){
+				if(!visited[i]){
+					articulatioPoint(desc, low, i, parent, ap, apnodeList,visited);
+				}
 			}
 			for(int k = 0;k<vertex;k++){
 				if(ap[k]){
@@ -57,30 +85,30 @@ class APNodeList
 		}
 	}
 	
-	public void articulatioPoint(int[] desc,int[] low,int src,int[] parent,boolean[] ap,APNode[] node){
+	public void articulatioPoint(int[] desc,int[] low,int src,int[] parent,boolean[] ap,APNode[] node,boolean[] visited){
 		try{
-			node[src].setVisited(true);
-			time++;
+			visited[src] = true;
+			time = time+1;
 			desc[src] = time;
 			low[src] = time;
 			int count = 0;
 			APNode n = node[src];
-			while(n != null){
-				int v = n.getData();
-				if(!node[v].isVisited()){
+			while(n .getNext()!= null){
+				if(!visited[n.getData()]){
 					count++;
-					parent[v] = src;
-					articulatioPoint(desc, low, v, parent, ap, node);
-					low[src] = getMin(low[v], low[src]);
-					if(parent[src] == 0 && count > 1){
+					parent[n.getData()] = src;
+					articulatioPoint(desc, low, n.getData(), parent, ap, node,visited);
+					low[src] = getMin(low[n.getData()], low[src]);
+					if(parent[src] == -1 && count > 1){
 						ap[src] = true;
 					}
-					if(parent[src] != 0 && low[v] >= desc[src]){
+					if(parent[src] != -1 && low[n.getData()] >= desc[src]){
 						ap[src] = true;
 					}
-				}else if(v != parent[src]){
-					low[src] = getMin(desc[v],low[src]);
+				}else if((visited[n.getData()])&&(n.getData() != parent[src])){
+					low[src] = getMin(desc[n.getData()],low[src]);
 				}
+				n = n.getNext();
 			}
 		}catch(Exception ex){
 			ex.printStackTrace();

@@ -29,6 +29,11 @@ public class ArticulationPoint {
 			GraphNodePathListArticulation gp = new GraphNodePathListArticulation(
 					vertex, sc);
 			GraphNodePathArticulation[] graph = gp.getGraphNodeList();
+//			GraphNodePathArticulation gr = graph[0];
+//			while(gr != null){
+//				System.out.print(gr.getData()+",");
+//				gr = gr.getNext();
+//			}
 			for (int i = 0; i < vertex; i++) {
 				if (!visited[i]) {
 					a.artiAlgo(low, desc, graph, i, visited, ap, parent);
