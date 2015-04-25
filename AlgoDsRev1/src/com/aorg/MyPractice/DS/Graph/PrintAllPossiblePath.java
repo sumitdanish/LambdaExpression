@@ -17,9 +17,15 @@ public class PrintAllPossiblePath {
 				int dest = Integer.parseInt(st[1]);
 				plist.addEadge(src, dest);
 			}
-			sc.close();
+//			sc.close();
 			PNode[] node = plist.getPnodeList();
-			
+//			for(int i = 0;i<vertex;i++){
+//				while(node[i] != null){
+//					System.out.print(node[i].getData()+",");
+//					node[i] = node[i].getNext();
+//				}
+//				System.out.println();
+//			}
 			pp.printPath(node,0,new int[vertex],2,3);;
 		}catch(Exception ex){
 			ex.printStackTrace();
@@ -68,6 +74,7 @@ class PNodeList
 		for(int i = 0; i< vertex ;i++){
 			pnodeList[i] = new PNode();
 		}
+		
 	}
 	public void setPNodeList(PNode[] pnodeList){
 		this.pnodeList = pnodeList;
