@@ -22,7 +22,7 @@ public class BellmanFordAlgo {
 			BNodeList node = new BNodeList(vertex, sc);
 			int[] dist = new int[vertex];
 			for(int i = 0;i<vertex;i++){
-				dist[i] = -1;
+				dist[i] = 0;
 			}
 			dist[0] = 0;
 			int src = 0;
@@ -53,9 +53,10 @@ public class BellmanFordAlgo {
 				while(n.getNext() != null ){
 					int v1 = n.getData();
 					if(!node[v1].isVisited()){
-						int d = dist[v1]+weight[v][v1];
+						int d = dist[v]+weight[v][v1];
+						//System.out.println(v+" > "+v1+" > "+weight[v][v1]);
 						if(dist[v1] > d){
-							dist[v1] = d;
+							dist[v] = d;
 							path[v1] = v;
 							q.add(v1);
 							n.setVisited(true);

@@ -13,17 +13,18 @@ public class DijakstraSortestPath {
 
 		try {
 			int[][] adJacencyMatt = { // 0 1 2 3 4 4 6 7 8
-					{ 0, 4, 0, 0, 0, 0, 0, 8, 0 },// each cell value represent
-													// the weight between the
-													// vertex
-					{ 4, 0, 8, 0, 0, 0, 0, 11, 0 },
-					{ 0, 8, 0, 7, 0, 4, 0, 0, 2 },
-					{ 0, 0, 7, 0, 9, 14, 0, 0, 0 },
-					{ 0, 0, 0, 9, 0, 10, 0, 0, 0 },
-					{ 0, 0, 4, 0, 10, 0, 2, 0, 0 },
-					{ 0, 0, 0, 14, 0, 2, 0, 1, 6 },
-					{ 8, 11, 0, 0, 0, 0, 1, 0, 7 },
-					{ 0, 0, 2, 0, 0, 0, 6, 7, 0 } };
+									   { 0, 4, 0, 0, 0, 0, 0, 8, 0 },	// each cell value represent
+																		// the weight between the
+																		// vertex
+									   { 4, 0, 8, 0, 0, 0, 0, 11, 0 },
+									   { 0, 8, 0, 7, 0, 4, 0, 0, 2 },
+									   { 0, 0, 7, 0, 9, 14, 0, 0, 0 },
+									   { 0, 0, 0, 9, 0, 10, 0, 0, 0 },
+									   { 0, 0, 4, 0, 10, 0, 2, 0, 0 },
+									   { 0, 0, 0, 14, 0, 2, 0, 1, 6 },
+									   { 8, 11, 0, 0, 0, 0, 1, 0, 7 },
+									   { 0, 0, 2, 0, 0, 0, 6, 7, 0 }
+									  };
 			int vertex = 9;
 			DijakstraSortestPath d = new DijakstraSortestPath(vertex);
 			d.sortestPath(adJacencyMatt, vertex);
