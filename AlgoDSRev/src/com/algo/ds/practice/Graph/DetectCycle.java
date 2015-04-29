@@ -59,7 +59,7 @@ public class DetectCycle {
 		return true;
 	}
 	
-	private boolean isCycleInGraph(GraphNodePathCycle[] graph,int s,boolean[] visited){
+	public boolean isCycleInGraph(GraphNodePathCycle[] graph,int s,boolean[] visited){
 		try{
 			visited[s]=true;
 			Stack<Integer> st = new Stack<Integer>();
@@ -95,7 +95,7 @@ public class DetectCycle {
 	}
 	
 	
-	private int getAdjacentVertex(GraphNodePathCycle[] graph,int s,boolean[] visited){
+	public int getAdjacentVertex(GraphNodePathCycle[] graph,int s,boolean[] visited){
 		try{
 		
 			GraphNodePathCycle g = graph[s];
