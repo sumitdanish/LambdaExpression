@@ -87,7 +87,7 @@ public class DFSAndBFS {
 		node[src].setVisited(true);
 		while(!q.isEmpty()){
 			int v = 0;
-			while((v = getUnvisitedVertex(node,q.poll())) != -1){
+			while((v = getUnvisitedVertex(node,q.poll())) != -1){ 
 				node[v].setVisited(true);
 				q.add(v);
 				System.out.print(v+",");

@@ -21,16 +21,15 @@ public class TernarySearchTree {
 			TernaryNode tr4 = ternaryTree.insert(tr1, 0, "cup");
 			TernaryNode tr5 = ternaryTree.insert(tr2, 0, "aliaba");
 			// TernaryNode tr4 = ternaryTree.insert(tr3,0,"wipro");
-			System.out.println(ternaryTree.logestLength(tr5));
-			// if(ternaryTree.isPresent(tr3,"cats",0))
-			// {
-			// System.out.println("Present");
-			// }
-			// else
-			// {
-			// System.out.println("Its not");
-			// }
-			ternaryTree.traverse(tr1, "ba");
+			//System.out.println(ternaryTree.logestLength(tr5));
+			 if(ternaryTree.isPresent(tr3,"cats",0))
+			 {
+			 System.out.println("Present");
+			 }
+			 else
+			 {
+			 System.out.println("Its not");
+			 }
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
