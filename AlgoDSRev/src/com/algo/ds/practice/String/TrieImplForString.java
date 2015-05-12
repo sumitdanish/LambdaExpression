@@ -27,7 +27,7 @@ public class TrieImplForString {
 			dict.insert("cat");
 			dict.insert("cater");
 			dict.insert("basement");
-			dict.searchString("baseme");
+			dict.searchString("ba");
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
