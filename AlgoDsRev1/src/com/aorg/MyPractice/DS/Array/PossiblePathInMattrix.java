@@ -15,7 +15,7 @@ public class PossiblePathInMattrix {
 			int n=3;
 			int path = new PossiblePathInMattrix().path1(m, n);
 			new PossiblePathInMattrix().printPath(mat,0,0,m,n,0,new String());
-			System.out.println(path);
+			System.out.println(new PossiblePathInMattrix().path(m,n));
 		}catch(Exception ex){
 			ex.printStackTrace();
 			
