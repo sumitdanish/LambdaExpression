@@ -25,7 +25,7 @@ public class CanvasGame extends Application{
 	public void start(Stage primaryStage) throws Exception {
 		try{
 			AnchorPane anchorPane = new AnchorPane();
-			anchorPane.getChildren().add(new MyGridPane());
+			anchorPane.getChildren().add(new MyGridPane(anchorPane));
 			Scene sc = new Scene(anchorPane,ge.getWidth(),ge.getHeight());
 			primaryStage.setScene(sc);
 			primaryStage.show();
@@ -42,10 +42,13 @@ class MyGridPane extends BorderPane
 {
 	double gh = 0;
 	double gw = 0;
-	public MyGridPane()
+	public MyGridPane(AnchorPane an)
 	{
 		gw = getPrefWidth();
 		gh = getPrefHeight();
+		
+		//setWidth((Scene)an.getScene().getWidth()());
+		setStyle("-fx-background-color: #4B4B4B;");
 		setLeft(new MyLeftPanelOnGridPane(this));
 		setCenter(new MyRigthPanelInGridPane(this));
 	}
