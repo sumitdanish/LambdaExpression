@@ -15,7 +15,6 @@ public class DrawPoint extends Application {
 
 	public static void main(String[] args) {
 		launch(args);
-
 	}
 	Line line1;
 	Circle cir1;
@@ -83,6 +82,7 @@ public class DrawPoint extends Application {
 						line.setEndY(event.getSceneY());
 						line.setFill(Color.AQUA);
 						l = line;
+						gr.getChildren().addAll(cir);
 					}
 					cir1 = new Circle(event.getSceneX(),event.getSceneY(),20);
 					cir1.setFill(Color.AQUAMARINE);
@@ -90,7 +90,7 @@ public class DrawPoint extends Application {
 				}
 			});
 			count++;
-			gr.getChildren().addAll(cir);
+			
 			Scene sc = new Scene(gr,300,300);
 			primaryStage.setScene(sc);;
 			primaryStage.show();
